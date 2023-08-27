@@ -1,15 +1,15 @@
 import React from "react";
 import styles from "./STButtonStyles";
 import {
+  Pressable,
+  PressableProps,
   StyleProp,
   Text,
   TextStyle,
-  TouchableOpacity,
-  TouchableOpacityProps,
   ViewStyle,
 } from "react-native";
 
-type PropTypes = TouchableOpacityProps & {
+type PropTypes = PressableProps & {
   title: string;
   variation?: "default" | "ghost" | "invert" | "outline";
   styles?: StyleProp<ViewStyle>;
@@ -21,14 +21,11 @@ export const STButton = (props: PropTypes) => {
   const textStyle: StyleProp<TextStyle> =
     styles[props.variation ? `${props.variation}_text` : "default_text"];
 
-  const { ...touchableOpacityProps } = props;
+  const { ...pressableProps } = props;
 
   return (
-    <TouchableOpacity
-      style={[viewStyle, props.styles]}
-      {...touchableOpacityProps}
-    >
+    <Pressable style={[viewStyle, props.styles]} {...pressableProps}>
       <Text style={textStyle}>{props.title}</Text>
-    </TouchableOpacity>
+    </Pressable>
   );
 };
