@@ -4,6 +4,7 @@ import GlobalStyles from "../../constants/GlobalStyles";
 // !
 const button: Record<string, any> = {
   borderRadius: 20,
+  justifyContent: "center",
 };
 
 const text: Record<string, any> = {
@@ -13,37 +14,57 @@ const text: Record<string, any> = {
   fontWeight: "600",
 };
 
-// todo: reorder and rename variations after doing main colors past auth
+// !
 const styles: Record<string, any> = StyleSheet.create({
   default: {
-    backgroundColor: GlobalStyles.colorSet.accentColor,
-    borderRadius: 20,
+    ...button,
+    backgroundColor: GlobalStyles.colorSet.backgroundColor,
   },
   ghost: {},
   invert: {
-    backgroundColor: GlobalStyles.colorSet.backgroundColor,
-    borderRadius: 20,
+    ...button,
+    backgroundColor: GlobalStyles.colorSet.accentColor,
+  },
+  text:{
+
   },
   outline: {
+    ...button,
     borderColor: GlobalStyles.colorSet.backgroundColor,
     borderWidth: 2,
-    borderRadius: 20,
+  },
+  blue: {
+    ...button,
+    backgroundColor: GlobalStyles.colorSet.blue,
   },
   default_text: {
     ...text,
-    color: GlobalStyles.colorSet.backgroundColor,
+    color: GlobalStyles.colorSet.accentColor,
   },
   ghost_text: {
     ...text,
-    color: GlobalStyles.colorSet.accentColor,
+    color: GlobalStyles.colorSet.backgroundColor,
   },
   invert_text: {
+    ...text,
+    color: GlobalStyles.colorSet.backgroundColor,
+  },
+  text_text: { 
     ...text,
     color: GlobalStyles.colorSet.accentColor,
   },
   outline_text: {
     ...text,
     color: GlobalStyles.colorSet.backgroundColor,
+  },
+  blue_text: {
+    ...text,
+    color: GlobalStyles.colorSet.accentColor,
+  },
+  iconL: {},
+  iconR: {
+    position: "absolute",
+    right: 16,
   },
 });
 

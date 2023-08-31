@@ -6,13 +6,23 @@ import {
   StyleProp,
   Text,
   TextStyle,
+  View,
   ViewStyle,
 } from "react-native";
 
-type PropTypes = PressableProps & {
+type PropTypes = PressableProps & { 
   title: string;
-  variation?: "default" | "ghost" | "invert" | "outline";
+  variation?:
+    | "default"
+    | "ghost"
+    | "invert"
+    | "ghost-invert"
+    | "outline"
+    | "blue";
   styles?: StyleProp<ViewStyle>;
+  textStyles?: StyleProp<TextStyle>;
+  leftIcon?: JSX.Element;
+  rightIcon?: JSX.Element;
 };
 
 export const STButton = (props: PropTypes) => {
@@ -25,7 +35,9 @@ export const STButton = (props: PropTypes) => {
 
   return (
     <Pressable style={[viewStyle, props.styles]} {...pressableProps}>
-      <Text style={textStyle}>{props.title}</Text>
+      <View>{props.leftIcon}</View>
+      <Text style={[textStyle, props.textStyles]}>{props.title}</Text>
+      <View style={styles.iconR}>{props.rightIcon}</View>
     </Pressable>
   );
 };

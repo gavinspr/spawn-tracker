@@ -1,37 +1,60 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Ionicons from "react-native-vector-icons/Ionicons";
-import Material from "react-native-vector-icons/MaterialCommunityIcons";
-import { AccountScreen, HomeScreen } from "../../screens";
+import Material from "@expo/vector-icons/MaterialCommunityIcons";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import {
+  MoreScreen,
+  CultureScreen,
+  HomeScreen,
+  MushroomScreen,
+  ExploreScreen,
+  GalleryScreen,
+} from "../../screens";
+import { MainStackParamList } from "../../@types";
+import GlobalStyles from "../../constants/GlobalStyles";
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator<MainStackParamList>();
+
+type TabName = "Home" | "Shrooms" | "Culture" | "Explore" | "Gallery" | "More";
+
+const tabIcons: Record<TabName, string> = {
+  Home: "home",
+  Shrooms: "mushroom",
+  Culture: "test-tube",
+  Explore: "explore",
+  Gallery: "photo-library",
+  More: "menu",
+};
 
 export const MainNavigator = () => {
+  const getTabBarIcon = (
+    route: { name: TabName },
+    color: string,
+    size: number
+  ): JSX.Element => {
+    const iconName = tabIcons[route.name] || "information-outline";
+
+    if (iconName === "explore" || iconName === "photo-library")
+      return <MaterialIcons name={iconName} size={size} color={color} />;
+
+    return <Material name={iconName as any} size={size} color={color} />;
+  };
+
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
-          let iconName: string;
-
-          if (route.name === "Home") {
-            iconName = focused ? "home" : "home-outline";
-            return <Ionicons name={iconName} size={size} color={color} />;
-          } else if (route.name === "Account") {
-            iconName = focused ? "account" : "account-outline";
-            return <Material name={iconName} size={size} color={color} />;
-          } else {
-            // Default icon name if route name is not recognized
-            iconName = "ios-information-circle-outline";
-            return <Ionicons name={iconName} size={size} color={color} />;
-          }
-        },
-        tabBarActiveTintColor: "#246EE9",
+        tabBarIcon: ({ color, size }) => getTabBarIcon(route, color, size),
+        tabBarActiveTintColor: `${GlobalStyles.colorSet.primaryColor}`,
         tabBarInactiveTintColor: "gray",
         headerShown: false,
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Account" component={AccountScreen} />
+      <Tab.Screen name="Shrooms" component={MushroomScreen} />
+      <Tab.Screen name="Culture" component={CultureScreen} />
+      <Tab.Screen name="Explore" component={ExploreScreen} />
+      <Tab.Screen name="Gallery" component={GalleryScreen} />
+      <Tab.Screen name="More" component={MoreScreen} />
     </Tab.Navigator>
   );
 };

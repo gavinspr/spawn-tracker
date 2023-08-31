@@ -30,8 +30,8 @@ export const LogInScreen = () => {
         setPassword={setPassword}
       />
       <STButton
-        title="Sign In"
-        variation="invert"
+        title="Log In"
+        variation={email && password ? "default" : "outline"}
         onPress={signInWithEmail}
         disabled={loading}
         styles={styles.button}

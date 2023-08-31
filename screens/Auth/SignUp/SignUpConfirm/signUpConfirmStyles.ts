@@ -4,8 +4,8 @@ import GlobalStyles from "../../../../constants/GlobalStyles";
 const styles = StyleSheet.create({
   wrap: {
     ...GlobalStyles.defaultPageStyles,
+    ...GlobalStyles.miscSet.noHeader,
     backgroundColor: GlobalStyles.colorSet.accentColor,
-    paddingTop: GlobalStyles.noHeader,
   },
   h2: {
     ...GlobalStyles.fontSet.h2,
@@ -17,9 +17,9 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 16,
   },
-  button:{
-    marginTop:32
-  }
+  button: {
+    marginTop: 32,
+  },
 });
 
 export default styles;

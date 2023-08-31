@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Alert, Text, View } from "react-native";
 import { supabase } from "../../services";
 
-export const AccountScreen = () => {
+export const MoreScreen = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
   async function signOut() {

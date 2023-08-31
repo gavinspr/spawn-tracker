@@ -18,7 +18,11 @@ export const AuthScreen = () => {
     <View style={styles.wrap}>
       <Text style={styles.header}>SpawnTracker</Text>
       <View style={styles.container}>
-        <STButton title="Sign Up" onPress={() => navigate("SignUpScreen")} />
+        <STButton
+          title="Sign Up"
+          onPress={() => navigate("SignUpScreen")}
+          variation="invert"
+        />
         <STButton
           title="Log In"
           variation="ghost"

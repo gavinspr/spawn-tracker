@@ -26,8 +26,9 @@ export const SignUpScreen = () => {
       password: password,
     });
 
-    if (error) return Alert.alert(error.message);
     setLoading(false);
+    if (error) return Alert.alert(error.message);
+    
     navigate("SignUpConfirmScreen");
   }
 
@@ -42,7 +43,7 @@ export const SignUpScreen = () => {
       />
       <STButton
         title="Sign Up"
-        variation="invert"
+        variation={email && password ? "default" : "outline"}
         onPress={signUpWithEmail}
         disabled={loading}
         styles={styles.button}

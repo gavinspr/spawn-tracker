@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./signUpConfirmStyles";
-import { View } from "react-native";
-import { Text } from "react-native-elements";
+import { View, Text } from "react-native";
 import { STButton } from "../../../../components";
 import { useNavigation } from "@react-navigation/native";
 import { AuthStackParamList } from "../../../../@types";
@@ -25,7 +24,6 @@ export const SignUpConfirmScreen = () => {
       <STButton
         title="Go to Log in"
         onPress={() => navigate("LogInScreen")}
-        variation="outline"
         styles={styles.button}
       />
     </View>
