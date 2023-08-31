@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import styles from "./cultureStyles";
 import { View } from "react-native";
-import { InoculateCultureModal, STButton } from "../../components";
+import {
+  // InoculateCultureModal,
+  STButton,
+} from "../../components";
 import Fontisto from "@expo/vector-icons/Fontisto";
 import GlobalStyles from "../../constants/GlobalStyles";
 
@@ -24,7 +27,7 @@ export const CultureScreen = () => {
           />
         }
       />
-      <InoculateCultureModal isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
+      {/* <InoculateCultureModal isOpen={isModalOpen} setIsOpen={setIsModalOpen} /> */}
     </View>
   );
 };
