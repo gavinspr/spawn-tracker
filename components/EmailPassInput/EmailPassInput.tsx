@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction, useState } from "react";
 import styles from "./emailPassInputStyles";
-import { TextInput } from "@react-native-material/core";
+import { TextInput } from "@react-native-material/core"; // !
 import { View } from "react-native";
 import Icon from "@expo/vector-icons/FontAwesome";
 

@@ -46,8 +46,8 @@ const _miscSet: StyleSet = {
 };
 
 const _defaultPageStyles: StyleSet = {
-  paddingLeft: 16,
-  paddingRight: 16,
+  paddingLeft: 8,
+  paddingRight: 8,
   flex: 1,
 };
 

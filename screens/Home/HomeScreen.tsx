@@ -1,13 +1,14 @@
 import React from "react";
 import styles from "./homeStyles";
-import { Text, View } from "react-native";
-// import { DashTracker } from "../../components";
+import { View } from "react-native";
+import { JournalDatePicker } from "../../components";
+
+// todo: notification bell above date picker
 
 export const HomeScreen = () => {
   return (
     <View style={styles.wrap}>
-      {/* <Text style={styles.text}>My Fungi</Text> */}
-      {/* <DashTracker /> */}
+      <JournalDatePicker />
     </View>
   );
 };
