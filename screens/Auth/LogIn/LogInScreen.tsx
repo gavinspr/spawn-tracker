@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./loginStyles";
 import { Alert, Text, View } from "react-native";
 import { supabase } from "../../../services";
-import { EmailPassInput, STButton } from "../../../components";
+import { EmailPassInput, Button } from "../../../components";
 
 export const LogInScreen = () => {
   const [email, setEmail] = useState<string>("");
@@ -29,7 +29,7 @@ export const LogInScreen = () => {
         password={password}
         setPassword={setPassword}
       />
-      <STButton
+      <Button
         title="Log In"
         variation={email && password ? "default" : "outline"}
         onPress={signInWithEmail}

@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import styles from "./cultureStyles";
 import { View } from "react-native";
-import {
-  // InoculateCultureModal,
-  STButton,
-} from "../../components";
+import { Button, FloatingActionButton } from "../../components";
 import Fontisto from "@expo/vector-icons/Fontisto";
 import GlobalStyles from "../../constants/GlobalStyles";
 
@@ -13,13 +10,22 @@ export const CultureScreen = () => {
 
   return (
     <View style={styles.wrap}>
-      <STButton
-        title="Inoculate"
+      {/* <Button
+        title=""
         variation="blue"
         onPress={() => setIsModalOpen(true)}
         styles={styles.button}
         textStyles={styles.button_text}
         rightIcon={
+          <Fontisto
+            name="injection-syringe"
+            size={24}
+            color={`${GlobalStyles.colorSet.accentColor}`}
+          />
+        }
+      /> */}
+      <FloatingActionButton
+        icon={
           <Fontisto
             name="injection-syringe"
             size={24}

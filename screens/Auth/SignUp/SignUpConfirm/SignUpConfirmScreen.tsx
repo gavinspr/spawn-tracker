@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./signUpConfirmStyles";
 import { View, Text } from "react-native";
-import { STButton } from "../../../../components";
+import { Button } from "../../../../components";
 import { useNavigation } from "@react-navigation/native";
 import { AuthStackParamList } from "../../../../@types";
 import { StackNavigationProp } from "@react-navigation/stack";
@@ -21,7 +21,7 @@ export const SignUpConfirmScreen = () => {
         You should receive a confirmation email shortly
       </Text>
       <Text style={styles.text}>Please confirm and proceed to log in!</Text>
-      <STButton
+      <Button
         title="Go to Log in"
         onPress={() => navigate("LogInScreen")}
         styles={styles.button}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Alert, Text, View } from "react-native";
 import styles from "./signUpStyles";
-import { EmailPassInput, STButton } from "../../../components";
+import { EmailPassInput, Button } from "../../../components";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { AuthStackParamList } from "../../../@types";
 import { useNavigation } from "@react-navigation/native";
@@ -28,7 +28,7 @@ export const SignUpScreen = () => {
 
     setLoading(false);
     if (error) return Alert.alert(error.message);
-    
+
     navigate("SignUpConfirmScreen");
   }
 
@@ -41,7 +41,7 @@ export const SignUpScreen = () => {
         password={password}
         setPassword={setPassword}
       />
-      <STButton
+      <Button
         title="Sign Up"
         variation={email && password ? "default" : "outline"}
         onPress={signUpWithEmail}

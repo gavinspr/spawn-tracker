@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./authStyles";
 import { Text, View } from "react-native";
-import { STButton } from "../../components";
+import { Button } from "../../components";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { AuthStackParamList } from "../../@types";
@@ -18,14 +18,13 @@ export const AuthScreen = () => {
     <View style={styles.wrap}>
       <Text style={styles.header}>SpawnTracker</Text>
       <View style={styles.container}>
-        <STButton
+        <Button
           title="Sign Up"
           onPress={() => navigate("SignUpScreen")}
           variation="invert"
         />
-        <STButton
+        <Button
           title="Log In"
-          variation="ghost"
           onPress={() => navigate("LogInScreen")}
         />
       </View>

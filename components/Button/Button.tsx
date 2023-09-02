@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./STButtonStyles";
+import styles from "./buttonStyles";
 import {
   Pressable,
   PressableProps,
@@ -10,7 +10,7 @@ import {
   ViewStyle,
 } from "react-native";
 
-type PropTypes = PressableProps & { 
+type PropTypes = PressableProps & {
   title: string;
   variation?:
     | "default"
@@ -25,7 +25,7 @@ type PropTypes = PressableProps & {
   rightIcon?: JSX.Element;
 };
 
-export const STButton = (props: PropTypes) => {
+export const Button = (props: PropTypes) => {
   const viewStyle: StyleProp<ViewStyle> = styles[props.variation ?? "default"];
 
   const textStyle: StyleProp<TextStyle> =
