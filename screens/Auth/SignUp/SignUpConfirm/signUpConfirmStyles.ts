@@ -4,7 +4,7 @@ import GlobalStyles from "../../../../constants/GlobalStyles";
 const styles = StyleSheet.create({
   wrap: {
     ...GlobalStyles.defaultPageStyles,
-    ...GlobalStyles.miscSet.noHeader,
+    justifyContent:"center",
     backgroundColor: GlobalStyles.colorSet.accentColor,
   },
   h2: {

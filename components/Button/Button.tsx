@@ -10,7 +10,7 @@ import {
   ViewStyle,
 } from "react-native";
 
-type PropTypes = PressableProps & {
+type PropTypes = Omit<PressableProps, "style"> & {
   title: string;
   variation?:
     | "default"

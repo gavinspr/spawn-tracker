@@ -5,7 +5,6 @@ import { LinearGradient } from "expo-linear-gradient";
 const styles = StyleSheet.create({
   wrap: {
     ...GlobalStyles.defaultPageStyles,
-    // ...GlobalStyles.miscSet.noHeader,
     padding: 80,
     // backgroundColor: GlobalStyles.colorSet.backgroundColor,
   },

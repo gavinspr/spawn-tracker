@@ -7,8 +7,8 @@ type PropTypes = {
   destination: string;
 };
 
-export const CustomNavigationHeader = (props: PropTypes) => {
-  const { navigate } = useNavigation<any>();
+export const NavigationHeaderLeftBackArrow = (props: PropTypes) => {
+  const { navigate } = useNavigation<any>(); // todo:
 
   return (
     <TouchableOpacity

@@ -7,7 +7,7 @@ import {
 } from "../../screens";
 import styles from "./authNavigatorStyles";
 import { AuthStackParamList } from "../../@types";
-import { CustomNavigationHeader } from "../../components";
+import { NavigationHeaderLeftBackArrow } from "../../components";
 
 const AuthStack = createStackNavigator<AuthStackParamList>();
 
@@ -35,7 +35,9 @@ export const AuthStackNavigator = () => {
         options={{
           headerTitle: "Log In",
           headerStyle: styles.header,
-          headerLeft: () => <CustomNavigationHeader destination="AuthScreen" />,
+          headerLeft: () => (
+            <NavigationHeaderLeftBackArrow destination="AuthScreen" />
+          ),
         }}
       />
     </AuthStack.Navigator>

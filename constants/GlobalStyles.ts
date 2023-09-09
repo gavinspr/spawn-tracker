@@ -3,12 +3,33 @@ type StyleSet = Record<string, any>;
 type GlobalStyle = {
   colorSet: StyleSet;
   fontSet: StyleSet;
-  miscSet: StyleSet;
+  componentSet: StyleSet;
   defaultPageStyles: StyleSet;
 };
 
+/* 
+Mushroom Theme:
+primary: #A75502
+secondary: #DAA520
+accent: #FFFDE7
+background: #228B22
+bruise blue: #66a8e3
+
+Light Theme:
+primary: #826699
+
+Dark Theme: 
+#0a0a0a
+#1c1a1b
+#3d3c4a
+#989795
+#ddd8d4
+
+*/
+
 const _colorSet: StyleSet = {
-  primaryColor: "#A75502",
+  // primaryColor: "#A75502",
+  primaryColor: "#826699",
   secondaryColor: "#DAA520",
   accentColor: "#FFFDE7",
   backgroundColor: "#228B22",
@@ -38,23 +59,30 @@ const _fontSet: StyleSet = {
   },
 };
 
-// todo: change name
-const _miscSet: StyleSet = {
-  noHeader: {
-    paddingTop: 120,
+const _componentSet: StyleSet = {
+  SelectList: {
+    inputStyles: { fontSize: 16, marginLeft: -3 },
+    boxStyles: {
+      borderRadius: 4,
+      paddingVertical: 16,
+      marginBottom: 2,
+    },
+    searchStyles: {
+      borderColor: _colorSet.primaryColor,
+      borderWidth: 2,
+    },
   },
 };
 
 const _defaultPageStyles: StyleSet = {
-  paddingLeft: 8,
-  paddingRight: 8,
+  paddingHorizontal: 16,
   flex: 1,
 };
 
 const GlobalStyles: GlobalStyle = {
   colorSet: _colorSet,
   fontSet: _fontSet,
-  miscSet: _miscSet,
+  componentSet: _componentSet,
   defaultPageStyles: _defaultPageStyles,
 };
 

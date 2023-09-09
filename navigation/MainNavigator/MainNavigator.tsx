@@ -12,14 +12,15 @@ import {
 } from "../../screens";
 import { MainStackParamList } from "../../@types";
 import GlobalStyles from "../../constants/GlobalStyles";
+import { CultureStackNavigator } from "../CultureNavigator/CultureNavigator";
 
 const Tab = createBottomTabNavigator<MainStackParamList>();
 
-type TabName = "Home" | "Shrooms" | "Culture" | "Explore" | "Gallery" | "More";
+type TabName = "Home" | "Fungi" | "Culture" | "Explore" | "Gallery" | "More";
 
 const tabIcons: Record<TabName, string> = {
   Home: "home",
-  Shrooms: "mushroom",
+  Fungi: "mushroom",
   Culture: "test-tube",
   Explore: "explore",
   Gallery: "photo-library",
@@ -50,8 +51,8 @@ export const MainNavigator = () => {
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Shrooms" component={MushroomScreen} />
-      <Tab.Screen name="Culture" component={CultureScreen} />
+      <Tab.Screen name="Fungi" component={MushroomScreen} />
+      <Tab.Screen name="Culture" component={CultureStackNavigator} />
       <Tab.Screen name="Explore" component={ExploreScreen} />
       <Tab.Screen name="Gallery" component={GalleryScreen} />
       <Tab.Screen name="More" component={MoreScreen} />

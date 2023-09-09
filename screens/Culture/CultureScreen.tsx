@@ -1,39 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./cultureStyles";
 import { View } from "react-native";
-import { Button, FloatingActionButton } from "../../components";
+import { FloatingActionButton } from "../../components";
 import Fontisto from "@expo/vector-icons/Fontisto";
 import GlobalStyles from "../../constants/GlobalStyles";
+import { useNavigation } from "@react-navigation/native";
 
 export const CultureScreen = () => {
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const { navigate } = useNavigation<any>();
 
   return (
     <View style={styles.wrap}>
-      {/* <Button
-        title=""
-        variation="blue"
-        onPress={() => setIsModalOpen(true)}
-        styles={styles.button}
-        textStyles={styles.button_text}
-        rightIcon={
-          <Fontisto
-            name="injection-syringe"
-            size={24}
-            color={`${GlobalStyles.colorSet.accentColor}`}
-          />
-        }
-      /> */}
       <FloatingActionButton
+        onPress={() => navigate("AddCulture")}
         icon={
           <Fontisto
             name="injection-syringe"
-            size={24}
+            size={26}
             color={`${GlobalStyles.colorSet.accentColor}`}
           />
         }
       />
-      {/* <InoculateCultureModal isOpen={isModalOpen} setIsOpen={setIsModalOpen} /> */}
     </View>
   );
 };
