@@ -15,22 +15,22 @@ export const AuthStackNavigator = () => {
   return (
     <AuthStack.Navigator>
       <AuthStack.Screen
-        name="AuthScreen"
+        name="Auth"
         component={AuthScreen}
         options={{ headerShown: false }}
       />
       <AuthStack.Screen
-        name="SignUpScreen"
+        name="SignUp"
         component={SignUpScreen}
         options={{ headerTitle: "Sign Up", headerStyle: styles.header }}
       />
       <AuthStack.Screen
-        name="SignUpConfirmScreen"
+        name="SignUpConfirm"
         component={SignUpConfirmScreen}
         options={{ headerShown: false }}
       />
       <AuthStack.Screen
-        name="LogInScreen"
+        name="LogIn"
         component={LogInScreen}
         options={{
           headerTitle: "Log In",

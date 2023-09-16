@@ -8,7 +8,7 @@ import { StackNavigationProp } from "@react-navigation/stack";
 
 type SignUpConfirmationScreenNavigationProp = StackNavigationProp<
   AuthStackParamList,
-  "AuthScreen"
+  "SignUpConfirm"
 >;
 
 export const SignUpConfirmScreen = () => {
@@ -23,7 +23,7 @@ export const SignUpConfirmScreen = () => {
       <Text style={styles.text}>Please confirm and proceed to log in!</Text>
       <Button
         title="Go to Log in"
-        onPress={() => navigate("LogInScreen")}
+        onPress={() => navigate("LogIn")}
         styles={styles.button}
       />
     </View>

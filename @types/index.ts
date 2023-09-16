@@ -5,3 +5,4 @@ export * from "./CultureType";
 export * from "./FungiType";
 export * from "./ScientificName";
 export * from "./OptionType";
+export * from "./CultureStackParamList";

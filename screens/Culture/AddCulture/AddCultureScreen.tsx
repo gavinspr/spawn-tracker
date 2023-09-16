@@ -7,11 +7,22 @@ import {
   UseFormReturn,
   useForm,
 } from "react-hook-form";
-import { CultureType, FungiType, OptionType } from "../../../@types";
+import {
+  CultureStackParamList,
+  CultureType,
+  FungiType,
+  OptionType,
+} from "../../../@types";
 import { supabase } from "../../../services";
 import { CultureForm } from "./CultureForm/CultureForm";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
+
+type SignUpConfirmationScreenNavigationProp = StackNavigationProp<
+  CultureStackParamList,
+  "AddCulture"
+>;
 
 export const AddCultureScreen = () => {
   const [fungi, setFungi] = useState<Array<FungiType>>([]);
@@ -23,7 +34,7 @@ export const AddCultureScreen = () => {
   const [isAdvancedFieldsOpen, setIsAdvancedFieldsOpen] =
     useState<boolean>(false);
 
-  const { navigate } = useNavigation<any>(); // todo:
+  const { navigate } = useNavigation<SignUpConfirmationScreenNavigationProp>();
 
   const methods: UseFormReturn<CultureType, any> = useForm<CultureType>();
 
@@ -115,7 +126,7 @@ export const AddCultureScreen = () => {
     // Clear form and navigate back to culture screen
     reset();
     setIsAdvancedFieldsOpen(false);
-    navigate("CultureScreen");
+    navigate("CultureHome");
   };
 
   const onError: SubmitErrorHandler<any> = (err) => {
@@ -127,7 +138,7 @@ export const AddCultureScreen = () => {
   return (
     <View style={styles.wrap}>
       <View style={styles.headerWrap}>
-        <Pressable onPress={() => navigate("CultureScreen")}>
+        <Pressable onPress={() => navigate("CultureHome")}>
           <MaterialCommunityIcons name="arrow-left" size={24} />
         </Pressable>
         <Text style={styles.header}>New Culture</Text>

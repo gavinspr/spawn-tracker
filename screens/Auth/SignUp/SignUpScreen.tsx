@@ -9,7 +9,7 @@ import { supabase } from "../../../services";
 
 type SignUpScreenNavigationProp = StackNavigationProp<
   AuthStackParamList,
-  "AuthScreen"
+  "SignUp"
 >;
 
 export const SignUpScreen = () => {
@@ -29,7 +29,7 @@ export const SignUpScreen = () => {
     setLoading(false);
     if (error) return Alert.alert(error.message);
 
-    navigate("SignUpConfirmScreen");
+    navigate("SignUpConfirm");
   }
 
   return (

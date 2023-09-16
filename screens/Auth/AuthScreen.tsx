@@ -6,10 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { AuthStackParamList } from "../../@types";
 
-type AuthScreenNavigationProp = StackNavigationProp<
-  AuthStackParamList,
-  "AuthScreen"
->;
+type AuthScreenNavigationProp = StackNavigationProp<AuthStackParamList, "Auth">;
 
 export const AuthScreen = () => {
   const { navigate } = useNavigation<AuthScreenNavigationProp>();
@@ -20,13 +17,10 @@ export const AuthScreen = () => {
       <View style={styles.container}>
         <Button
           title="Sign Up"
-          onPress={() => navigate("SignUpScreen")}
+          onPress={() => navigate("SignUp")}
           variation="invert"
         />
-        <Button
-          title="Log In"
-          onPress={() => navigate("LogInScreen")}
-        />
+        <Button title="Log In" onPress={() => navigate("LogIn")} />
       </View>
     </View>
   );
