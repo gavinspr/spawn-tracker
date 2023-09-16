@@ -51,7 +51,11 @@ export const CultureForm = ({
 
   const currentDate: string = format(new Date(), "yyyy-MM-dd ");
 
-  const { setValue, getValues } = useFormContext();
+  const {
+    setValue,
+    getValues,
+    formState: { errors },
+  } = useFormContext();
 
   const commonNameWatcher: string = useWatch({
     name: "common_name",

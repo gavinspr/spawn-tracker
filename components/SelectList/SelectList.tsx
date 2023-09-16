@@ -1,3 +1,5 @@
+// yoinked from react-native-dropdown-select-list
+
 import React from "react";
 import {
   View,
@@ -13,8 +15,6 @@ import {
   TextStyle,
 } from "react-native";
 
-// todo: make custom textInput can use in here
-// todo: properly fork from react-native-dropdown-select-list
 // ? todo: add onBlur
 
 type PropTypes = {
@@ -88,6 +88,7 @@ export const SelectList: React.FC<PropTypes> = ({
       useNativeDriver: false,
     }).start();
   };
+
   const slideup = () => {
     Animated.timing(animatedvalue, {
       toValue: 0,
@@ -160,7 +161,6 @@ export const SelectList: React.FC<PropTypes> = ({
             ) : (
               searchicon
             )}
-
             <TextInput
               placeholder={searchPlaceholder}
               onChangeText={(val) => {
@@ -206,12 +206,11 @@ export const SelectList: React.FC<PropTypes> = ({
             }
           }}
         >
+          {defaultOption !== undefined && (
+            <Text style={styles.inlineLabel}>{placeholder}</Text>
+          )}
           <Text style={[{ fontFamily }, inputStyles]}>
-            {selectedval == ""
-              ? placeholder
-                ? placeholder
-                : "Select option"
-              : selectedval}
+            {selectedval == "" ? placeholder ?? "Select option" : selectedval}
           </Text>
           {!arrowicon ? (
             <Image
@@ -334,5 +333,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "whitesmoke",
     opacity: 0.9,
+  },
+  inlineLabel: {
+    position: "absolute",
+    top: -10,
+    left: 12,
+    backgroundColor: "#fff",
+    paddingHorizontal: 4,
+    fontSize: 12,
+    opacity: 0.8,
   },
 });
