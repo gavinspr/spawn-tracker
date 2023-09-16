@@ -48,6 +48,7 @@ export const MainNavigator = () => {
         tabBarActiveTintColor: `${GlobalStyles.colorSet.primaryColor}`,
         tabBarInactiveTintColor: "gray",
         headerShown: false,
+        tabBarStyle: { paddingBottom: 5, height: 55 },
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
