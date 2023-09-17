@@ -4,7 +4,6 @@ import Material from "@expo/vector-icons/MaterialCommunityIcons";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import {
   MoreScreen,
-  CultureScreen,
   HomeScreen,
   MushroomScreen,
   ExploreScreen,
@@ -13,6 +12,7 @@ import {
 import { MainStackParamList } from "../../@types";
 import GlobalStyles from "../../constants/GlobalStyles";
 import { CultureStackNavigator } from "../CultureNavigator/CultureNavigator";
+import { Entypo } from "@expo/vector-icons";
 
 const Tab = createBottomTabNavigator<MainStackParamList>();
 
@@ -21,7 +21,7 @@ type TabName = "Home" | "Fungi" | "Culture" | "Explore" | "Gallery" | "More";
 const tabIcons: Record<TabName, string> = {
   Home: "home",
   Fungi: "mushroom",
-  Culture: "test-tube",
+  Culture: "lab-flask",
   Explore: "explore",
   Gallery: "photo-library",
   More: "menu",
@@ -35,8 +35,11 @@ export const MainNavigator = () => {
   ): JSX.Element => {
     const iconName = tabIcons[route.name] || "information-outline";
 
-    if (iconName === "explore" || iconName === "photo-library")
-      return <MaterialIcons name={iconName} size={size} color={color} />;
+    if (route.name === "Explore" || route.name === "Gallery")
+      return <MaterialIcons name={iconName as any} size={size} color={color} />;
+
+    if (route.name === "Culture")
+      return <Entypo name={iconName as any} size={size} color={color} />;
 
     return <Material name={iconName as any} size={size} color={color} />;
   };

@@ -1,6 +1,6 @@
 import { ScientificName } from "./ScientificName";
 
-export interface CultureType {
+export type CultureType = {
   uuid: string;
   created_at: string;
   culture_name: string;
@@ -14,7 +14,18 @@ export interface CultureType {
   description?: string;
   is_isolated?: boolean;
   // todo: image
-}
+};
+
+export type SupaBaseCultureType = Omit<
+  CultureType,
+  "scientificName",
+  "substrate"
+> & {
+  genus: string;
+  species: string;
+  substrate: CultureSubstrate;
+  substrate_description: string;
+};
 
 export type CultureSubstrate = "liquid" | "agar" | "grain";
 
@@ -27,7 +38,6 @@ type CultureStatus =
   | "Inoculated"
   | "Colonizing"
   | "Healthy"
-  | "Possibly Contaminated"
   | "Contaminated"
   | "Dead"
-  | "Resurrected Outside";
+  // | "Resurrected Outside"; // todo: only for fungi status

@@ -18,6 +18,7 @@ import { CultureForm } from "./CultureForm/CultureForm";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
+import { useCultureContext } from "../../../providers";
 
 type SignUpConfirmationScreenNavigationProp = StackNavigationProp<
   CultureStackParamList,
@@ -33,6 +34,8 @@ export const AddCultureScreen = () => {
   );
   const [isAdvancedFieldsOpen, setIsAdvancedFieldsOpen] =
     useState<boolean>(false);
+
+  const { setCultures } = useCultureContext();
 
   const { navigate } = useNavigation<SignUpConfirmationScreenNavigationProp>();
 
@@ -104,14 +107,14 @@ export const AddCultureScreen = () => {
         common_name: values.common_name,
         genus: values.scientificName.genus,
         species: values.scientificName.species,
-        cultureID: values.culture_id,
+        culture_id: values.culture_id,
         substrate: values.substrate.type,
         substrate_description: values.substrate.description,
         date_inoculated: values.date_inoculated,
-        status: values.status,
+        status: values.status ?? "Inoculated",
         origin: values.origin,
         description: values.description,
-        is_isolated: values.is_isolated,
+        is_isolated: values.is_isolated ?? false,
       },
     ]);
 
@@ -126,6 +129,11 @@ export const AddCultureScreen = () => {
     // Clear form and navigate back to culture screen
     reset();
     setIsAdvancedFieldsOpen(false);
+
+    setCultures((prevCultures: Array<CultureType> | undefined) => [
+      ...(prevCultures || []),
+      values,
+    ]);
     navigate("CultureHome");
   };
 
